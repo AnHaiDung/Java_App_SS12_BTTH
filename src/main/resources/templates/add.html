@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h3 >Đăng ký nhập viện</h3>
+        <div class="card-body">
+            <form th:action="@{/patients/save}" th:object="${patient}" method="post">
+                    <label class="form-label">Mã bệnh nhân:</label>
+                    <input type="text" th:field="*{id}" class="form-control" placeholder="BN-xxxx" />
+                    <p class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+
+                    <label class="form-label">Họ và tên:</label>
+                    <input type="text" th:field="*{fullName}" class="form-control" />
+                    <p class="error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></p>
+
+                    <label class="form-label">Ngày sinh:</label>
+                    <input type="date" th:field="*{dob}" class="form-control" />
+                    <p class="error" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></p>
+
+                    <label class="form-label">Số điện thoại:</label>
+                    <input type="text" th:field="*{phone}" class="form-control" />
+                    <p class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+
+                    <label class="form-label">Ngày nhập viện:</label>
+                    <input type="date" th:field="*{admissionDate}" class="form-control" />
+                    <p class="error" th:if="${#fields.hasErrors('admissionDate')}" th:errors="*{admissionDate}"></p>
+
+                    <label class="form-label">Địa chỉ:</label>
+                    <input type="text" th:field="*{address}" class="form-control" />
+                    <p class="error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+
+                    <label class="form-label">Triệu chứng:</label>
+                    <textarea th:field="*{symptoms}" class="form-control" rows="3"></textarea>
+                    <p class="error" th:if="${#fields.hasErrors('symptoms')}" th:errors="*{symptoms}"></p>
+
+                <div>
+                    <button type="submit" class="btn btn-primary px-4">Lưu hồ sơ</button>
+                    <a th:href="@{/patients}" class="btn btn-secondary px-4">Hủy</a>
+                </div>
+            </form>
+        </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
